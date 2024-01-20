@@ -14,10 +14,10 @@ do: ## Stop the docker container
 	$(DC) down
 
 ex: ## Enter the container
-	docker compose exec -it $(DOCKER_CONTAINER_NAME) /bin/sh
+	docker compose exec -it -u user $(DOCKER_CONTAINER_NAME) /bin/bash
 
 exa: ## Enter the container as root
-	docker compose exec -it -u root $(DOCKER_CONTAINER_NAME) /bin/sh
+	docker compose exec -it -u root $(DOCKER_CONTAINER_NAME) /bin/bash
 
 run: prep-args ## Run given python script
 	@if [ -z "$(runargs)" ]; then \
